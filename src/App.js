@@ -1,9 +1,10 @@
+import Stopwatch from "./pages/Stopwatch";
 
 
 function App() {
   return (
     <div>
-      This will be a stopwatch soon!
+      <Stopwatch />
     </div>
   );
 }
