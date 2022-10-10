@@ -1,10 +1,8 @@
 import React from 'react'
 
-const Stop = ({ setIsRunning, setIsPaused, countRef }) => {
+const Stop = ({ countRef }) => {
 
     const handleStop = () => {
-        setIsRunning(false);
-        setIsPaused(true);
         clearInterval(countRef.current);
     }
 
