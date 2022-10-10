@@ -3,8 +3,8 @@ import React from 'react'
 const Reset = ({timer, setTimer}) => {
 
     const handleReset = () => {
-        setTimer((timer) => timer = 0);
-        console.log(timer)
+      setTimer((timer) => timer = 0);
+      console.log('Rest timer is:', timer)
     }
 
   return (
