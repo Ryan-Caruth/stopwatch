@@ -1,9 +1,10 @@
 import React from "react";
+// import { formatLap } from "../../utilities/FormatLap";
 
-const Lap = ({ lap, setLap, setTimer, timer }) => {
+const Lap = ({ lap, setLap, setTimer, timer, formatTime }) => {
   const handleLap = () => {
       setLap((lap) => {
-        return [ ...lap, timer ];
+        return [ formatTime(timer), ...lap ];
       });
     setTimer((timer) => (timer = 0));
   };
@@ -12,11 +13,13 @@ const Lap = ({ lap, setLap, setTimer, timer }) => {
       <button id="lap-button" onClick={handleLap}>
         Lap
       </button>
-      <ul>
+      <ol>
+        <li>
         {lap.map((l) => {
           return (l)
         })}
-      </ul>
+        </li>
+      </ol>
     </div>
   );
 };
