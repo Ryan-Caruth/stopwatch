@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react";
+// import { formatLap } from "../../utilities/FormatLap";
 import Lap from "../lap/Lap";
 import Reset from "../reset/Reset";
 import Start from "../start/Start";
@@ -11,15 +12,21 @@ const Timer = () => {
   console.log('Lap is:', lap)
   const countRef = useRef(null);
 
+ const formatTime = () => {
+   const millieseconds = `0${(timer / 10) % 100}`.slice(-2);
+   const seconds = `0${(Math.floor(timer / 1000) % 60)}`.slice(-2);
+   const minutes = `0${(Math.floor(timer / 60000) % 60)}`.slice(-2);
+   const hours = `0${(Math.floor(timer / 3600000) % 60)}`.slice(-2);
+   return `${hours}:${minutes}:${seconds}:${millieseconds}`
+  };
+
+
   return (
     <div className="stopwatch-container">
       <h1>Stopwatch</h1>
       <br />
       <div className="timer-container">
-        <span id="hours">{("0" + Math.floor((timer / 360000) % 60)).slice(-2)}:</span>
-        <span id="minutes">{("0" + Math.floor((timer / 60000) % 60)).slice(-2)}:</span>
-        <span id="seconds">{("0" + Math.floor((timer / 1000) % 60)).slice(-2)}:</span>
-        <span id="millieseconds">{("0" + ((timer / 10) % 100)).slice(-2)}</span>
+        <p>{formatTime()}</p>
       </div>
       <Start
         countRef={countRef}
@@ -30,7 +37,7 @@ const Timer = () => {
         countRef={countRef}
       />
       <Reset timer={timer} setTimer={setTimer} />
-      <Lap lap={lap} setLap={setLap} setTimer={setTimer} timer={timer} />
+      <Lap lap={lap} setLap={setLap} setTimer={setTimer} timer={timer} formatTime={formatTime} />
     </div>
   );
 };
