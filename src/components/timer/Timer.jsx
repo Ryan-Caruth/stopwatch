@@ -7,6 +7,8 @@ import Stop from "../stop/Stop";
 
 const Timer = () => {
   const [timer, setTimer] = useState(0);
+  const [running, setRunning] = useState(false);
+  console.log(`running is: `, running)
   console.log('timer is', timer)
   const [lap, setLap] = useState([]);
   console.log('Lap is:', lap)
@@ -28,16 +30,18 @@ const Timer = () => {
       <div className="timer-container">
         <p>{formatTime()}</p>
       </div>
-      <Start
+      {!running && <Start
         countRef={countRef}
         timer={timer}
         setTimer={setTimer}
-      />
-      <Stop
+        setRunning={setRunning}
+      />}
+      {running && <Stop
         countRef={countRef}
-      />
-      <Reset timer={timer} setTimer={setTimer} />
-      <Lap lap={lap} setLap={setLap} setTimer={setTimer} timer={timer} formatTime={formatTime} />
+        setRunning={setRunning}
+      />}
+      {!running && timer > 0 && <Reset timer={timer} setTimer={setTimer} setRunning={setRunning} />}
+      {running && <Lap lap={lap} setLap={setLap} setTimer={setTimer} timer={timer} formatTime={formatTime} setRunning={setRunning} />}
     </div>
   );
 };
