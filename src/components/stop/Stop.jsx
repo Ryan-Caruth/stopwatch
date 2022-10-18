@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Stop = ({ countRef }) => {
+const Stop = ({ countRef, setRunning }) => {
 
-    const handleStop = () => {
-        clearInterval(countRef.current);
+  const handleStop = () => {
+    setRunning(false);
+    clearInterval(countRef.current);
     }
 
   return (

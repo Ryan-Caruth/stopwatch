@@ -1,8 +1,9 @@
 import React from 'react'
 
-const Start = ({ countRef, timer, setTimer } ) => {
+const Start = ({ countRef, timer, setTimer, setRunning } ) => {
 
     const handleStart = () => {
+        setRunning(true);
         countRef.current = setInterval(() => {
             setTimer((timer) => timer + 10)
         }, 10);

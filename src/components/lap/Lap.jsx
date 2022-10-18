@@ -1,8 +1,9 @@
 import React from "react";
 // import { formatLap } from "../../utilities/FormatLap";
 
-const Lap = ({ lap, setLap, setTimer, timer, formatTime }) => {
+const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning}) => {
   const handleLap = () => {
+    setRunning(true);
       setLap((lap) => {
         return [ formatTime(timer), ...lap ];
       });
