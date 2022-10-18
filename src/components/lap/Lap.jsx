@@ -1,5 +1,5 @@
 import React from "react";
-// import { formatLap } from "../../utilities/FormatLap";
+import './lap.css';
 
 const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning}) => {
   const handleLap = () => {
@@ -14,13 +14,11 @@ const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning}) => {
       <button id="lap-button" onClick={handleLap}>
         Lap
       </button>
-      <ol>
-        <li>
+      <div id="list">
         {lap.map((l) => {
           return (l)
         })}
-        </li>
-      </ol>
+      </div>
     </div>
   );
 };

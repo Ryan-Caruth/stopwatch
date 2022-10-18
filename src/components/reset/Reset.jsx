@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Reset = ({timer, setTimer, setRunning, setReset }) => {
+const Reset = ({timer, setTimer, setRunning }) => {
 
   const handleReset = () => {
     setRunning(false);
