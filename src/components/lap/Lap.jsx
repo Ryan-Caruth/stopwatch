@@ -14,11 +14,13 @@ const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning}) => {
       <button id="lap-button" onClick={handleLap}>
         Lap
       </button>
-      <div id="list">
-        {lap.map((l) => {
-          return (l)
-        })}
-      </div>
+      <ol>
+          {lap.map((l, index) => (
+            <li key={index}>
+              {l}
+            </li>
+          ))}
+      </ol>
     </div>
   );
 };
