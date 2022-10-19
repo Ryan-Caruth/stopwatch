@@ -8,10 +8,7 @@ import Stop from "../stop/Stop";
 const Timer = () => {
   const [timer, setTimer] = useState(0);
   const [running, setRunning] = useState(false);
-  console.log(`running is: `, running)
-  console.log('timer is', timer)
   const [lap, setLap] = useState([]);
-  console.log('Lap is:', lap)
   const countRef = useRef(null);
 
  const formatTime = () => {
