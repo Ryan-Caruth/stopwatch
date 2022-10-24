@@ -1,7 +1,8 @@
 import React from "react";
+import Stop from "../stop/Stop";
 import './lap.css';
 
-const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning}) => {
+const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning, countRef}) => {
   const handleLap = () => {
     setRunning(true);
       setLap((lap) => {
@@ -9,17 +10,17 @@ const Lap = ({ lap, setLap, setTimer, timer, formatTime, setRunning}) => {
       });
     setTimer((timer) => (timer = 0));
   };
+
   return (
-    <div>
+    <div id="lap-stop">
+      <Stop setRunning={setRunning} countRef={countRef} />
       <button id="lap-button" onClick={handleLap}>
         Lap
       </button>
-      <ol>
-          {lap.map((l, index) => (
-            <li key={index}>
-              {l}
-            </li>
-          ))}
+      <ol id="laps">
+        {lap.map((l, index) => (
+          <li key={index}>{l}</li>
+        ))}
       </ol>
     </div>
   );

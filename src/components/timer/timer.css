@@ -1,0 +1,16 @@
+#stopwatch-title, .timer-container, .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #28666E;
+    font-size: 15px;
+}
+
+.timer-container {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+hr {
+    width: 20%;
+}

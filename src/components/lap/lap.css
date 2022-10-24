@@ -1,6 +1,10 @@
-ol {
+#laps {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    flex-direction: column;
+    flex-direction: column-reverse;
+}
+
+#lap-stop {
+    text-align: center;
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './clock.css'
 
 const Clock = () => {
     //Add a State that holds the date
@@ -17,7 +18,7 @@ const Clock = () => {
     }, []);
 
   return (
-      <div>
+      <div id='clock-display'>
           {date.toDateString()}<br />
           {date.toLocaleTimeString()}
       </div>
